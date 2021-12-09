@@ -73,7 +73,7 @@ def read_values():
     cpu_temp = get_cpu_temperature()
     raw_temp = bme280.get_temperature()
     comp_temp = raw_temp - ((cpu_temp - raw_temp) / comp_factor)
-    values["id"] = get_serial_number() #"raspi-1"
+    values["name"] = get_serial_number() #"raspi-1"
     values["time"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     values["temp"] = "{:.2f}".format(comp_temp)
     values["pressure"] = "{:.2f}".format(bme280.get_pressure() * 100)
