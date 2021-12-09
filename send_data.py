@@ -73,7 +73,7 @@ def read_values():
     cpu_temp = get_cpu_temperature()
     raw_temp = bme280.get_temperature()
     comp_temp = raw_temp - ((cpu_temp - raw_temp) / comp_factor)
-    values["id"] = "raspi-1"
+    values["id"] = get_serial_number() #"raspi-1"
     values["time"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     values["temp"] = "{:.2f}".format(comp_temp)
     values["pressure"] = "{:.2f}".format(bme280.get_pressure() * 100)
@@ -123,13 +123,15 @@ def check_wifi():
 
 
 class Client():
-   def __init__(self, adress=("192.168.0.227", 5000)):
-      self.s = socket.socket()
-      self.s.connect(adress)
+   def __init__(self, url="https://ke-ap01.econ.muni.cz/pushToDB.php"):
+      #self.s = socket.socket()
+      #self.s.connect(adress)
+      self.url = url
 
    def send_data(self):
       data = json.dumps(read_values(), indent=4)
-      self.s.send(data.encode())
+      requests.post(self.url, data.encode())
+      #self.s.send(data.encode())
 
 c = Client()
 while True:
