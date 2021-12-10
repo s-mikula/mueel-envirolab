@@ -124,14 +124,11 @@ def check_wifi():
 
 class Client():
    def __init__(self, url="https://ke-ap01.econ.muni.cz/pushToDB.php"):
-      #self.s = socket.socket()
-      #self.s.connect(adress)
       self.url = url
 
    def send_data(self):
-      data = json.dumps(read_values(), indent=4)
-      requests.post(self.url, data.encode())
-      #self.s.send(data.encode())
+      data = read_values()
+      requests.post(self.url, data)
 
 c = Client()
 while True:
