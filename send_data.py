@@ -110,6 +110,21 @@ def check_wifi():
     else:
         return False
 
+# Display Raspberry Pi serial and Wi-Fi status on LCD
+def display_status():
+    wifi_status = "connected" if check_wifi() else "disconnected"
+    text_colour = (255, 255, 255)
+    back_colour = (141, 211, 95) if check_wifi() else (255, 85, 85)
+    id = get_serial_number()
+    message = "{}\nWi-Fi: {}".format(id, wifi_status)
+    img = Image.new('RGB', (WIDTH, HEIGHT), color=(0, 0, 0))
+    draw = ImageDraw.Draw(img)
+    size_x, size_y = draw.textsize(message, font)
+    x = (WIDTH - size_x) / 2
+    y = (HEIGHT / 2) - (size_y / 2)
+    draw.rectangle((0, 0, 160, 80), back_colour)
+    draw.text((x, y), message, font=font, fill=text_colour)
+    disp.display(img)
 
 class Client():
    def __init__(self, url="https://ke-ap01.econ.muni.cz/pushToDB.php"):
@@ -121,4 +136,5 @@ class Client():
 
 c = Client()
 while True:
+    display_status()
     c.send_data()
