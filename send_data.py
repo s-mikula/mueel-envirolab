@@ -110,6 +110,14 @@ def check_wifi():
     else:
         return False
 
+# Width and height to calculate text position
+WIDTH = disp.width
+HEIGHT = disp.height
+
+# Text settings
+font_size = 16
+font = ImageFont.truetype(UserFont, font_size)
+    
 # Display Raspberry Pi serial and Wi-Fi status on LCD
 def display_status():
     wifi_status = "connected" if check_wifi() else "disconnected"
