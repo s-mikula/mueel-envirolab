@@ -149,7 +149,7 @@ update_time = time.time()
 
 while True:
     sdata = read_values()
-    time_since_update = time.time() - update_time()
+    time_since_update = time.time() - update_time
     if time_since_update > 15:
         update_time = time.time()
         display_status()
