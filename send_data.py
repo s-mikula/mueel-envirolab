@@ -143,6 +143,14 @@ class Client():
       requests.post(self.url, data)
 
 c = Client()
+
+time_since_update = 0
+update_time = time.time()
+
 while True:
-    display_status()
-    c.send_data()
+    try:
+        time_since_update = time.time() - update_time
+        if time_since_update > 15:
+            update_time = time.time()
+            display_status()
+            c.send_data()
