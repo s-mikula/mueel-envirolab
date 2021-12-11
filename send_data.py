@@ -32,17 +32,6 @@ logging.basicConfig(
     level=logging.INFO,
     datefmt='%Y-%m-%d %H:%M:%S')
 
-logging.info("""luftdaten.py - Reads temperature, pressure, humidity,
-#PM2.5, and PM10 from Enviro plus and sends data to Luftdaten,
-#the citizen science air quality project.
-#Note: you'll need to register with Luftdaten at:
-#https://meine.luftdaten.info/ and enter your Raspberry Pi
-#serial number that's displayed on the Enviro plus LCD along
-#with the other details before the data appears on the
-#Luftdaten map.
-#Press Ctrl+C to exit!
-#""")
-
 bus = SMBus(1)
 
 # Create BME280 instance
