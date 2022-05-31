@@ -1,0 +1,6 @@
+1) Ověřit jestli nás nevyhazuje eduroam.
+2) Měnit barvu displeje podle funkčnosti připojení k databázi: OK == zelená
+3) Pokud není databáze dostupná (~je problém) -> restartovat skript
+4) Začít zapisovat do DB až po pár minutách
+5) Napsat kontrolní skript, který reportuje možné chyby
+6) Ověřit, jestli se do DB zapisuje teplota
