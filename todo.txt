@@ -4,3 +4,4 @@
 4) Začít zapisovat do DB až po pár minutách
 5) Napsat kontrolní skript, který reportuje možné chyby
 6) Ověřit, jestli se do DB zapisuje teplota
+7) Zálohovat do lokální databáze
