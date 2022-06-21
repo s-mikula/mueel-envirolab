@@ -5,3 +5,4 @@
 5) Napsat kontrolní skript, který reportuje možné chyby
 6) Ověřit, jestli se do DB zapisuje teplota
 7) Zálohovat do lokální databáze
+8) otevřít SSH na nějakém exotickém portu
